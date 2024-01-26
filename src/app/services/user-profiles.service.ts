@@ -9,7 +9,15 @@ export class UserProfilesService {
   private baseUrl: string = "https://localhost:7187/api/Profiles/";
   constructor(private httpClient: HttpClient) { }
 
-  getDoctors (){
-    return this.httpClient.get(`${this.baseUrl}get-doctors`);
+  getDoctors(){
+    return this.httpClient.get(`${this.baseUrl}doctors`);
+  }
+
+  getPatients(){
+    return this.httpClient.get(`${this.baseUrl}patients`);
+  }
+
+  getReceptionists(){
+    return this.httpClient.get(`${this.baseUrl}receptionists`);
   }
 }

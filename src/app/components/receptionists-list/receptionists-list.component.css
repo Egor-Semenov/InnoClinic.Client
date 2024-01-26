@@ -1,0 +1,15 @@
+.full-width-table {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  background-color: #2196F3; /* Material UI primary color */
+  padding: 10px;
+  color: white;
+  text-align: left;
+}
