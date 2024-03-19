@@ -1,0 +1,94 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="container">
+    <div class="form-container">
+        <h4>Create Doctor's Profile</h4>
+        <form action="">
+            <div class="form-user-data">
+                <div class="form-element">
+                    <mat-icon>person</mat-icon>
+                    <div class="input-wrapper">
+                        <input [(ngModel)]="username" [ngModelOptions]="{standalone: true}" placeholder="Username" class="form-control" type="text" #usernameValidator="ngModel" required>
+                        <small [hidden]="usernameValidator.valid || usernameValidator.untouched" class="alert alert-danger">Username is required</small>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <mat-icon>person</mat-icon>
+                    <div class="input-wrapper">
+                        <input [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}" placeholder="First Name" class="form-control" type="text" #firstNameValidator="ngModel" required>
+                        <small [hidden]="firstNameValidator.valid || firstNameValidator.untouched" class="alert alert-danger">First name is required</small>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <mat-icon>person</mat-icon>
+                    <div class="input-wrapper">
+                        <input [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}" placeholder="Last Name" class="form-control" type="text" #lastNameValidator="ngModel" required>
+                        <small [hidden]="lastNameValidator.valid || lastNameValidator.untouched" class="alert alert-danger">Last name is required</small>
+                    </div>
+                </div>
+                <div class="form-element">
+                    <mat-icon>person</mat-icon>
+                    <div class="input-wrapper">
+                        <input [(ngModel)]="middleName" [ngModelOptions]="{standalone: true}" placeholder="Middle Name" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>           
+            <div class="form-element">
+                <mat-icon>date_range</mat-icon>
+                <div class="input-wrapper">
+                    <input [(ngModel)]="birthDate" [ngModelOptions]="{standalone: true}" [matDatepicker]="birthDatepicker" placeholder="Birth Date" class="form-control" #birthDateValidator="ngModel" required>
+                    <small [hidden]="birthDateValidator.valid || birthDateValidator.untouched" class="alert alert-danger">Date is required</small>
+                </div>
+                <mat-datepicker-toggle [for]="birthDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #birthDatepicker></mat-datepicker>
+            </div>
+            <div class="form-element">
+                <mat-icon>email</mat-icon>
+                <div class="input-wrapper">
+                    <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="Email" class="form-control" type="email" #emailValidator="ngModel" required>
+                    <small [hidden]="emailValidator.valid || emailValidator.untouched" class="alert alert-danger">Email is required</small>
+                </div>
+            </div>
+            <div class="form-element">
+                <mat-icon>work</mat-icon>
+                <div class="input-wrapper">
+                    <select [(ngModel)]="specialization" [ngModelOptions]="{standalone: true}" #specializationValidator="ngModel" required>
+                        <option *ngFor="let specialization of specializationsDataSource" value="{{specialization.specializationName}}">{{specialization.specializationName}}</option>
+                    </select>
+                    <small [hidden]="specializationValidator.valid || specializationValidator.untouched" class="alert alert-danger">Specialization is required</small>
+                </div>
+            </div>
+            <div class="form-element">
+                <mat-icon>location_on</mat-icon>
+                <div class="input-wrapper">
+                    <select [(ngModel)]="office" [ngModelOptions]="{standalone: true}" #officeValidator="ngModel" required>
+                        <option *ngFor="let office of officesDataSource" value="{{office.officeAddress}}">{{office.officeAddress}}</option>
+                    </select>
+                    <small [hidden]="officeValidator.valid || officeValidator.untouched" class="alert alert-danger">Office is required</small>
+                </div>
+            </div>
+            <div class="form-element">
+                <mat-icon>date_range</mat-icon>
+                <div class="input-wrapper">
+                    <input [(ngModel)]="careerStartDate" [ngModelOptions]="{standalone: true}" [matDatepicker]="careerDatepicker" placeholder="Career Start Date" class="form-control" #careerStartDateValidator="ngModel" required>
+                    <small [hidden]="careerStartDateValidator.valid || careerStartDateValidator.untouched" class="alert alert-danger">Date is required</small>
+                </div>
+                <mat-datepicker-toggle [for]="careerDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #careerDatepicker></mat-datepicker>
+            </div>
+            <div class="form-element">
+                <mat-icon>password</mat-icon>
+                <div class="input-wrapper">
+                    <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="Password" type="password" class="form-control" #passwordValidator="ngModel" required>
+                    <small [hidden]="passwordValidator.valid || passwordValidator.untouched" class="alert alert-danger">Password is required</small>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="btn btn-danger" routerLink="/doctors">Cancel</button>
+                <button [disabled]="usernameValidator.invalid" type="submit" (click)="confirm()" class="btn btn-primary">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+

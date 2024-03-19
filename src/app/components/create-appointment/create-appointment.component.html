@@ -1,0 +1,21 @@
+<ng-container [ngSwitch]="currentStep$ | async">
+    <app-service-info
+      *ngSwitchCase="'serviceInfo'" 
+      [appointmentForm]="appointmentForm"
+      (subformInitialized)="subformInitialized('serviceInfo', $event)" 
+      (changeStep)="changeStep('serviceInfo', $event)" 
+    ></app-service-info>
+    <app-service-details 
+      *ngSwitchCase="'serviceDetails'" 
+      [appointmentForm]="appointmentForm"
+      (subformInitialized)="subformInitialized('serviceDetails', $event)" 
+      (changeStep)="changeStep('serviceDetails', $event)" 
+    ></app-service-details>
+    <app-appointment-details 
+      *ngSwitchCase="'appointmentsDetails'" 
+      [appointmentForm]="appointmentForm" 
+      (subformInitialized)="subformInitialized('appointmentsDetails', $event)" 
+      (changeStep)="changeStep('appointmentsDetails', $event)"
+      (submitForm)="submitForm()"
+    ></app-appointment-details>
+  </ng-container>

@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li, a, button {
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: black;
+}
+
+.nav_bar {
+  list-style: none;
+}
+
+.nav_bar li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_bar li a:hover {
+  color: aquamarine;
+}
+
+button {
+  padding: 9px 25px;
+  background-color: cadetblue;
+  border: none;
+  border-radius: 50px;
+}
+
+button:hover {
+  color: aquamarine;
+}
+
+.fa.fa-user{
+  color: white;
+}
+
+.btn-delete {
+  background-color: red;
+}
+
+.btn-support {
+  background-color: yellow;
+}
+
+.btn-edit {
+  background-color: cadetblue;
+}
+
+.nav-user-icon {
+  font-size: 25px;
+}
