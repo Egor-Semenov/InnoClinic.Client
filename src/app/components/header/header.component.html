@@ -1,0 +1,36 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<header class="site-header">
+    <a href="/" class="brand">Inno Clinic</a>
+    <nav>
+      <ul class="nav_bar">
+        <li><a href="#">Appointments</a></li>
+        <li><a href="#">Services and Prices</a></li>
+        <li><a routerLink="doctors">Doctors</a></li>
+        <li><a href="#">Offices</a></li>
+        <li><a href="#">Contacts</a></li>
+      </ul>
+    </nav>
+    <ng-container *ngIf="isLoggedIn; else notLoggedInContent">
+      <button >Log Out</button>
+      <div class="nav-user-icon">
+        <i class="fa fa-user" [matMenuTriggerFor]="menu"></i>
+      </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item class="btn-edit">
+          <mat-icon>edit</mat-icon>
+          <span>Edit Profile</span>
+        </button>
+        <button mat-menu-item class="btn-support">
+          <mat-icon class="icon-support">contact_support</mat-icon>
+          <span>Support</span>
+        </button>
+        <button mat-menu-item class="btn-delete">
+          <mat-icon>delete_forever</mat-icon>
+          <span>Delete Profile</span>
+        </button>
+      </mat-menu>
+    </ng-container>
+    <ng-template #notLoggedInContent>
+      <button >Sign In</button>
+    </ng-template>
+</header>

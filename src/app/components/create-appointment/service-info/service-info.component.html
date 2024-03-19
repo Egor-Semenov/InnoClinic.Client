@@ -1,0 +1,36 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="container">
+    <div class="form-container">
+        <ul id="progressbar">
+            <li class="active" id="account"><strong>Account</strong></li>
+            <li id="personal"><strong>Personal</strong></li>
+            <li id="payment"><strong>Payment</strong></li>
+            <li id="confirm"><strong>Finish</strong></li>
+        </ul>
+    <form [formGroup]="serviceInfo">
+        <mat-form-field>
+            <mat-label>Choose Specialization</mat-label>
+            <mat-select formControlName="specialization" (selectionChange)="serviceInfo.get('serviceCategory')?.enable(); serviceInfo.get('service')?.setValue(null)">
+                <mat-option *ngFor="let specialization of specializationsSource" value="{{specialization.specializationId}}">{{specialization.specializationName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Choose service category</mat-label>
+            <mat-select formControlName="serviceCategory" (selectionChange)="getServicesBySpecializationAndCategory(serviceInfo.get('specialization')?.value, serviceInfo.get('serviceCategory')?.value)">
+                <mat-option value="1">Analyses</mat-option>
+                <mat-option value="2">Consultation</mat-option>
+                <mat-option value="3">Diagnostics</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Choose service</mat-label>
+            <mat-select formControlName="service">
+                <mat-option *ngFor="let service of servicesSource" value="{{service.serviceId}}">{{service.serviceName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button  class="btn btn-primary" (click)="doChangeStep('Next')">Next</button>
+    </form>
+    </div>
+</div>

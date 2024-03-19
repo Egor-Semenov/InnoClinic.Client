@@ -13,3 +13,51 @@ header {
   color: white;
   text-align: left;
 }
+
+.filter-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter label {
+  margin-bottom: 5px;
+}
+
+.filter input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+}
+
+.search-button button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-button button:hover {
+  background-color: #45a049;
+}
